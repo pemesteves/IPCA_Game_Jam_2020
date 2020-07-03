@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         rot_x = 0f; rot_y = 0f;
-        minRotation = -45f;
+        minRotation = -15f;
         maxRotation = 45f;
     }
 

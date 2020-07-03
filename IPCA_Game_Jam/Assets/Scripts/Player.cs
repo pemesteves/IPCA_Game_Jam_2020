@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     private bool canShoot;
 
+    public GameObject gunBarrel;
+    public GameObject bullet; //Bullet Prefab
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +76,8 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         playerAnimator.SetTrigger("shoot");
+
+        Instantiate(bullet, gunBarrel.transform);
         canShoot = false;
         Invoke("CanShootAgain", .5f);
     }

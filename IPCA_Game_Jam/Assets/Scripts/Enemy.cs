@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     private Animator animator;
 
+    public GameObject minimapIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,9 @@ public class Enemy : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(target.position);
             animator.SetBool("isAgro", true);
+            minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
 
-            if(distance <= agent.stoppingDistance) {
+            if (distance <= agent.stoppingDistance) {
                 animator.SetBool("isAttacking", true);
                 Vector3 direction = (target.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -35,7 +38,9 @@ public class Enemy : MonoBehaviour
             } else {
                 animator.SetBool("isAttacking", false);
             }
-        } else {
+        } else
+        {
+            minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
             animator.SetBool("isAgro", false);
             agent.isStopped = true;
         }

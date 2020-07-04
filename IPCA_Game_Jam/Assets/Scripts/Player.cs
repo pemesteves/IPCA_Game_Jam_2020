@@ -142,6 +142,9 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
 
+        if (currentHealth <= 0)
+            playerAnimator.SetTrigger("die");
+
         healthBar.SetHealth(currentHealth);
     }
 }

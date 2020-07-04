@@ -112,6 +112,11 @@ public class Player : MonoBehaviour
     {
         playerAnimator.SetTrigger("shoot");
 
+        Invoke("InstantiateBullet", .2f);
+    }
+
+    private void InstantiateBullet()
+    {
         Instantiate(bullet, gunBarrel.transform);
         canShoot = false;
         Invoke("CanShootAgain", .5f);

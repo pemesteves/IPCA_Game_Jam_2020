@@ -565,6 +565,51 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.51327544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4863624
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.48636281
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5132749
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0876027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.022615433
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -86.916
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142526049555133805, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3726186
+      objectReference: {fileID: 0}
     - target: {fileID: 2278595322399532920, guid: 2e0ab3236a43e3c45a3166571f02e02d,
         type: 3}
       propertyPath: m_Layer
@@ -589,6 +634,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.56277347
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4281194
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.42811987
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.56277287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.873
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.373
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902157778981681957, guid: 2e0ab3236a43e3c45a3166571f02e02d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -74.523
       objectReference: {fileID: 0}
     - target: {fileID: 7043755406223691857, guid: 2e0ab3236a43e3c45a3166571f02e02d,
         type: 3}

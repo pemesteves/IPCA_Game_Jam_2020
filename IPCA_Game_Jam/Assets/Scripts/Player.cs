@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         isAiming = false;
         isHoldingLantern = false;
         playerAnimator = gameObject.GetComponent<Animator>();
-        speed = 0.1f;
+        speed = 4f;
 
         canShoot = true;
 

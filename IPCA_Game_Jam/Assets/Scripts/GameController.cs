@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         round = 0;
-        //Invoke("Round", 5.0f);
+        Invoke("Round", 5.0f);
     }
 
     // Update is called once per frame

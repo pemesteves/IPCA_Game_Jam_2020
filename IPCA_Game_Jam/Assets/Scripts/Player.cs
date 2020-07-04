@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Transform gunBarrelTransform;
     public GameObject bullet; //Bullet Prefab
     public ParticleSystem muzzleFlash;
+    public GameObject target;
 
     /* HEALTH BAR */
     public HealthBar healthBar;
@@ -100,21 +101,27 @@ public class Player : MonoBehaviour
 
         if (isAiming)
         {
-           /* RaycastHit hit; //TODO Change DrawRay to point
+            RaycastHit hit; //TODO Change DrawRay to point
+            Debug.Log(gunBarrel.transform.TransformDirection(-Vector3.right));
             if (Physics.Raycast(gunBarrel.transform.position, gunBarrel.transform.TransformDirection(-Vector3.right), out hit, Mathf.Infinity))
             {
-                Debug.DrawRay(gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, Color.cyan, 20);
+                target.SetActive(true);
+                target.transform.position = hit.point;
             }
-            */
+            else
+            {
+                target.SetActive(false);
+            }
+        }
+        else
+        {
+            target.SetActive(false);
         }
 
         if (aim && canShoot && Input.GetButtonDown("Shoot")) {
             gunBarrelTransform = gunBarrel.transform;
             Shoot();
         }
-
-
-
     }
 
     private void Walk(float x, float z)

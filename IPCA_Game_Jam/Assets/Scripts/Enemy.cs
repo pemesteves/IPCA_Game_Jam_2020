@@ -14,6 +14,13 @@ public class Enemy : MonoBehaviour
 
     private CapsuleCollider collider;
 
+    /* SOUNDS */
+    public AudioClip[] zombieSounds;
+    public AudioClip[] attackSounds;
+    public AudioClip[] bitingSounds;
+    private AudioSource audioSource;
+    private bool playingAttackSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +29,8 @@ public class Enemy : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         collider.enabled = false;
         Invoke("EnableCollider", 1.0f);
+        audioSource = GetComponent<AudioSource>();
+        Invoke("PlayRandomSound", 0f);
     }
 
     // Update is called once per frame
@@ -40,6 +49,7 @@ public class Enemy : MonoBehaviour
                 Vector3 direction = (target.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+                PlayAttackSound();
             } else {
                 animator.SetBool("isAttacking", false);
             }
@@ -59,5 +69,28 @@ public class Enemy : MonoBehaviour
     private void EnableCollider()
     {
         collider.enabled = true;
+    }
+
+    private void PlayRandomSound()
+    {
+        audioSource.clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
+        audioSource.Play();
+        Invoke("PlayRandomSound", audioSource.clip.length * 1.5f);
+    }
+
+    private void PlayAttackSound()
+    {
+        if (playingAttackSound) return;
+        CancelInvoke("PlayRandomSound");
+        audioSource.clip = attackSounds[Random.Range(0, attackSounds.Length)];
+        audioSource.Play();
+        Invoke("FinishAttackSound", audioSource.clip.length);
+        playingAttackSound = true;
+    }
+
+    private void FinishAttackSound()
+    {
+        playingAttackSound = false;
+        PlayRandomSound();
     }
 }

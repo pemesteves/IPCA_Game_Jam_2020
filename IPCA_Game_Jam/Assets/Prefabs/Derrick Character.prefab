@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 1267884745500245575}
   - component: {fileID: 1267884745500245574}
   - component: {fileID: 1267884745500245572}
+  - component: {fileID: 1703080133020652212}
   m_Layer: 0
   m_Name: Derrick Character
   m_TagString: Untagged
@@ -167,6 +168,120 @@ MonoBehaviour:
   lookRadius: 2.5
   target: {fileID: 0}
   minimapIcon: {fileID: 1267884744078290289}
+  zombieSounds:
+  - {fileID: 8300000, guid: e24cd0770329f374cafc621201e74969, type: 3}
+  - {fileID: 8300000, guid: d938c373ab055a34387e9cbaf077fc8c, type: 3}
+  - {fileID: 8300000, guid: 6caa01da3c1237c4eb97b37702ced8ae, type: 3}
+  - {fileID: 8300000, guid: df0bf00a9fd0f974681928cfb858ca65, type: 3}
+  - {fileID: 8300000, guid: 581a8229a8a38fe4bb7642e19ab7c2e3, type: 3}
+  - {fileID: 8300000, guid: 557aae9b04d784a43bd0fba0edf5ef02, type: 3}
+  - {fileID: 8300000, guid: 447cf09ffa0fca14c93813e801e2ad48, type: 3}
+  - {fileID: 8300000, guid: 9751706e8736f014189420e8e06b2543, type: 3}
+  - {fileID: 8300000, guid: 090bd61353e34c04291e6fdcd60316d6, type: 3}
+  - {fileID: 8300000, guid: dbbab23364f61c14297ecb6b8be47875, type: 3}
+  attackSounds:
+  - {fileID: 8300000, guid: f47299e248705b14a89ad8987f3a5771, type: 3}
+  - {fileID: 8300000, guid: 6f8d7acf8ee1aaf449c2c24b4b25e9f1, type: 3}
+  - {fileID: 8300000, guid: 97939c6725e34e3428e6ef5f2a6bbe63, type: 3}
+  - {fileID: 8300000, guid: 1cb465fdfefe5ef428b2562471043451, type: 3}
+  - {fileID: 8300000, guid: 403d45f539182c249b2e5eb12ad24832, type: 3}
+  bitingSounds: []
+--- !u!82 &1703080133020652212
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825069541516095468}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1825069542567587889
 PrefabInstance:
   m_ObjectHideFlags: 0

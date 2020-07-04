@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
 
     private bool canShoot;
 
+    /* SHOOTING */
     public GameObject gunBarrel;
     public GameObject bullet; //Bullet Prefab
+    public ParticleSystem muzzleFlash;
 
     /* HEALTH BAR */
     public HealthBar healthBar;
@@ -117,6 +119,7 @@ public class Player : MonoBehaviour
 
     private void InstantiateBullet()
     {
+        muzzleFlash.Play();
         Instantiate(bullet, gunBarrel.transform);
         canShoot = false;
         Invoke("CanShootAgain", .5f);

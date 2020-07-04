@@ -12,10 +12,15 @@ public class GameController : MonoBehaviour
     public GameObject enemyPrefab;
     private int round;
 
+    public GameObject waveIncomingCanvas;
+    public Text waveIncomingText;
+    public GameObject[] waveIncomingPanels;
+
     // Start is called before the first frame update
     void Start()
     {
         round = 0;
+        IncomingRound();
         Invoke("Round", 5.0f);
     }
 
@@ -47,12 +52,40 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    private void IncomingRound()
+    {
+        waveIncomingCanvas.SetActive(false);
+        waveIncomingCanvas.SetActive(true);
+        Image canvasImage = waveIncomingCanvas.GetComponent<Image>();
+        canvasImage.color = NewColor(canvasImage.color, 1.0f);
+        canvasImage.CrossFadeAlpha(0.0f, 4.0f, true);
+
+        waveIncomingText.text = "Wave " + (round+1) + " incoming!";
+        waveIncomingText.color = NewColor(waveIncomingText.color, 1.0f);
+        waveIncomingText.CrossFadeAlpha(0.0f, 4.0f, true);
+
+        foreach(GameObject c in waveIncomingPanels)
+        {
+            canvasImage = c.GetComponent<Image>();
+            canvasImage.color = NewColor(canvasImage.color, 1.0f);
+            canvasImage.CrossFadeAlpha(0.0f, 4.0f, true);
+
+            canvasImage = c.transform.GetChild(0).GetComponent<Image>();
+            canvasImage.color = NewColor(canvasImage.color, 1.0f);
+            canvasImage.CrossFadeAlpha(0.0f, 4.0f, true);
+        }
+    }
+
+    private Color NewColor(Color c, float a)
+    {
+        return new Color(c.r, c.g, c.b, a);
+    }
+
     private void Round()
     {
+        Invoke("IncomingRound", 0.5f * round * round + 5.0f);
         Invoke("Round", 0.5f * round * round + 10.0f);
         round++;
-        // Maybe set a trigger for canvas to display something announcing new round
-        Debug.Log("New round" + round);
 
         for(int i = 0; i < round; i++)
         {

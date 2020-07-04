@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    /* PLAYER ANIMATOR */
     private Animator playerAnimator;
     private bool isWalking;
     private bool isAiming;
+    private bool isHoldingLantern;
+
     private float speed;
     private int aimMask;
 
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour
     {
         isWalking = false;
         isAiming = false;
+        isHoldingLantern = false;
         playerAnimator = gameObject.GetComponent<Animator>();
         speed = 0.1f;
 
@@ -31,6 +35,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool holdLantern = Input.GetButton("HoldLantern");
+        if (holdLantern && !isHoldingLantern)
+        {
+            playerAnimator.SetBool("isHoldingLantern", true);
+            isHoldingLantern = true;
+        }
+        else if(!holdLantern && isHoldingLantern)
+        {
+            playerAnimator.SetBool("isHoldingLantern", false);
+            isHoldingLantern = false;
+        }
+
         bool aim = Input.GetButton("Aim");
         if (aim && !isAiming)
         {

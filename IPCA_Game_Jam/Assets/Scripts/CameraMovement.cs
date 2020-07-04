@@ -12,8 +12,10 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         rot_x = 0f; rot_y = 0f;
-        minRotation = -15f;
-        maxRotation = 45f;
+        /*minRotation = -15f;
+        maxRotation = 45f;*/
+        minRotation = 0f;
+        maxRotation = 0f;
     }
 
     // Update is called once per frame

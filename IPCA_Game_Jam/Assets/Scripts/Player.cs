@@ -92,29 +92,12 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("isAiming", true);
             isAiming = true;
+            target.SetActive(true);
         }
         else if(!aim && isAiming)
         {
             playerAnimator.SetBool("isAiming", false);
             isAiming = false;
-        }
-
-        if (isAiming)
-        {
-            RaycastHit hit; //TODO Change DrawRay to point
-            Debug.Log(gunBarrel.transform.TransformDirection(-Vector3.right));
-            if (Physics.Raycast(gunBarrel.transform.position, gunBarrel.transform.TransformDirection(-Vector3.right), out hit, Mathf.Infinity))
-            {
-                target.SetActive(true);
-                target.transform.position = hit.point;
-            }
-            else
-            {
-                target.SetActive(false);
-            }
-        }
-        else
-        {
             target.SetActive(false);
         }
 

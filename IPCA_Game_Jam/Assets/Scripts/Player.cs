@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     /* SHOOTING */
     public GameObject gunBarrel;
+    private Transform gunBarrelTransform;
     public GameObject bullet; //Bullet Prefab
     public ParticleSystem muzzleFlash;
 
@@ -84,6 +85,7 @@ public class Player : MonoBehaviour
         }
 
         if (aim && canShoot && Input.GetButtonDown("Shoot")) {
+            gunBarrelTransform = gunBarrel.transform;
             Shoot();
         }
 
@@ -124,6 +126,7 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         playerAnimator.SetTrigger("shoot");
+        canShoot = false;
 
         Invoke("InstantiateBullet", .2f);
     }
@@ -131,9 +134,8 @@ public class Player : MonoBehaviour
     private void InstantiateBullet()
     {
         muzzleFlash.Play();
-        Instantiate(bullet, gunBarrel.transform);
-        canShoot = false;
-        Invoke("CanShootAgain", .5f);
+        Instantiate(bullet, gunBarrelTransform);
+        Invoke("CanShootAgain", .4f);
     }
 
     private void CanShootAgain()

@@ -16,9 +16,9 @@ public class Player : MonoBehaviour
 
     private float speed;
 
-    private bool canShoot;
-
     /* SHOOTING */
+    private bool canShoot;
+    private GameObject gun;
     public GameObject gunBarrel;
     private Transform gunBarrelTransform;
     public GameObject bullet; //Bullet Prefab
@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        gun = GameObject.FindGameObjectWithTag("Gun");
     }
 
     void FixedUpdate()
@@ -130,6 +132,7 @@ public class Player : MonoBehaviour
 
     private void InstantiateBullet()
     {
+        gun.GetComponent<AudioSource>().Play();
         muzzleFlash.Play();
         Instantiate(bullet, gunBarrelTransform);
         Invoke("CanShootAgain", .4f);

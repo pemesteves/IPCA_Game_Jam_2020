@@ -71,11 +71,12 @@ public class Player : MonoBehaviour
 
         if (isAiming)
         {
-            RaycastHit hit; //TODO Change DrawRay to point
+           /* RaycastHit hit; //TODO Change DrawRay to point
             if (Physics.Raycast(gunBarrel.transform.position, gunBarrel.transform.TransformDirection(-Vector3.right), out hit, Mathf.Infinity))
             {
                 Debug.DrawRay(gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, Color.cyan, 20);
             }
+            */
         }
 
         if (aim && canShoot && Input.GetButtonDown("Shoot")) { 

@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7497887494551312434}
   m_Layer: 0
-  m_Name: Lantern 1
+  m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7153414266469696136}
-  m_LocalRotation: {x: 0.0643819, y: 0.73678905, z: -0.07087297, w: 0.6693086}
+  m_LocalRotation: {x: 0.06438234, y: 0.736788, z: -0.070873216, w: 0.6693097}
   m_LocalPosition: {x: -0.26, y: 0.818, z: -0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 8036499323934946940}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 8036499323468058963}
   m_Father: {fileID: 7497887494551312434}

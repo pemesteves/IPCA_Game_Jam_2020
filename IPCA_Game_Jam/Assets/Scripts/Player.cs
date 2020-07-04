@@ -153,4 +153,13 @@ public class Player : MonoBehaviour
             gameController.GameOver();
         }
     }
+
+    private void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("LightOrb"))
+        {
+            Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
+            lanternLight.intensity = 2.8f;
+        }
+        Destroy(other.gameObject);
+    }
 }

@@ -42,7 +42,31 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-}
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        {
+            if (!isWalking)
+            {
+                isWalking = true;
+                playerAnimator.SetBool("isWalking", isWalking);
+            }
+
+            float z = Input.GetAxis("Vertical")*speed;
+            float x = Input.GetAxis("Horizontal")*speed;
+            Walk(x, z);
+        }
+        else
+        {
+            if (isWalking)
+            {
+                isWalking = false;
+                playerAnimator.SetBool("isWalking", isWalking);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -89,26 +113,7 @@ public class Player : MonoBehaviour
             Shoot();
         }
 
-        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
-        {
-            if (!isWalking)
-            {
-                isWalking = true;
-                playerAnimator.SetBool("isWalking", isWalking);
-            }
 
-            float z = Input.GetAxis("Vertical")*speed;
-            float x = Input.GetAxis("Horizontal")*speed;
-            Walk(x, z);
-        }
-        else
-        {
-            if (isWalking)
-            {
-                isWalking = false;
-                playerAnimator.SetBool("isWalking", isWalking);
-            }
-        }
 
     }
 

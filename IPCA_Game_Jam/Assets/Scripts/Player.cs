@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private bool isAiming;
     private float speed;
 
+    private bool canShoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
         isAiming = false;
         playerAnimator = gameObject.GetComponent<Animator>();
         speed = 0.1f;
+
+        canShoot = true;
     }
 
     // Update is called once per frame
@@ -31,6 +35,11 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("isAiming", false);
             isAiming = false;
+        }
+
+        if(aim && canShoot && Input.GetButtonDown("Shoot"))
+        {
+            Shoot();
         }
 
         if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
@@ -59,5 +68,17 @@ public class Player : MonoBehaviour
     private void Walk(float x, float z)
     {
         gameObject.transform.Translate(new Vector3(x, 0, z));
+    }
+
+    private void Shoot()
+    {
+        playerAnimator.SetTrigger("shoot");
+        canShoot = false;
+        Invoke("CanShootAgain", .5f);
+    }
+
+    private void CanShootAgain()
+    {
+        canShoot = true;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Rigidbody rb;
+
     /* PLAYER ANIMATOR */
     private Animator playerAnimator;
     private bool isWalking;
@@ -27,6 +29,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         isWalking = false;
         isAiming = false;
         isHoldingLantern = false;
@@ -79,7 +83,7 @@ public class Player : MonoBehaviour
             */
         }
 
-        if (aim && canShoot && Input.GetButtonDown("Shoot")) { 
+        if (aim && canShoot && Input.GetButtonDown("Shoot")) {
             Shoot();
         }
 
@@ -108,7 +112,13 @@ public class Player : MonoBehaviour
 
     private void Walk(float x, float z)
     {
-        gameObject.transform.Translate(new Vector3(x, 0, z));
+        Vector3 vel = transform.TransformDirection(new Vector3(x, 0, z));
+		vel = vel - rb.velocity;
+
+		vel.x = Mathf.Clamp(vel.x, -10, 10);
+		vel.z = Mathf.Clamp(vel.z, -10, 10);
+		vel.y = 0;
+		rb.AddForce(vel, ForceMode.VelocityChange);
     }
 
     private void Shoot()

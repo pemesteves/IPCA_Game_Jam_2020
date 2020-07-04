@@ -11,12 +11,16 @@ public class Player : MonoBehaviour
     private bool isHoldingLantern;
 
     private float speed;
-    private int aimMask;
 
     private bool canShoot;
 
     public GameObject gunBarrel;
     public GameObject bullet; //Bullet Prefab
+
+    /* HEALTH BAR */
+    public HealthBar healthBar;
+    private int maxHealth = 100;
+    private int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +33,16 @@ public class Player : MonoBehaviour
 
         canShoot = true;
 
-        aimMask = 1 << 8; //Check collision with layer 8 (Arena)
-    }
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+}
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+            TakeDamage(1);
+
         bool holdLantern = Input.GetButton("HoldLantern");
         if (holdLantern && !isHoldingLantern)
         {
@@ -112,5 +120,12 @@ public class Player : MonoBehaviour
     private void CanShootAgain()
     {
         canShoot = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
     }
 }

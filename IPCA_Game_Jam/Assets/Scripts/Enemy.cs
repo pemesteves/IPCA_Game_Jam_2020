@@ -12,11 +12,16 @@ public class Enemy : MonoBehaviour
 
     public GameObject minimapIcon;
 
+    private CapsuleCollider collider;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
+        collider = GetComponent<CapsuleCollider>();
+        collider.enabled = false;
+        Invoke("EnableCollider", 1.0f);
     }
 
     // Update is called once per frame
@@ -49,5 +54,10 @@ public class Enemy : MonoBehaviour
     void onGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    private void EnableCollider()
+    {
+        collider.enabled = true;
     }
 }

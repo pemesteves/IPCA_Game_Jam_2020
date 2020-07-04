@@ -125,17 +125,15 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         playerAnimator.SetTrigger("shoot");
-        canShoot = false;
-
-        Invoke("InstantiateBullet", .2f);
-    }
-
-    private void InstantiateBullet()
-    {
         gun.GetComponent<AudioSource>().Play();
         muzzleFlash.Play();
-        Instantiate(bullet, gunBarrelTransform);
+        canShoot = false;
         Invoke("CanShootAgain", .4f);
+
+        RaycastHit hit;
+        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 30);
+        if(hit.collider.gameObject.tag == "Enemy")
+            hit.collider.gameObject.GetComponent<Enemy>().getHit();
     }
 
     private void CanShootAgain()

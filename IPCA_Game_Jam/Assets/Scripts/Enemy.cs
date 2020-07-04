@@ -12,16 +12,20 @@ public class Enemy : MonoBehaviour
 
     public GameObject minimapIcon;
 
-    private CapsuleCollider collider;
+    //private CapsuleCollider collider;
+
+    private int life = 2;
+
+    private bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
-        collider = GetComponent<CapsuleCollider>();
-        collider.enabled = false;
-        Invoke("EnableCollider", 1.0f);
+        //collider = GetComponent<CapsuleCollider>();
+        //collider.enabled = false;
+        //Invoke("EnableCollider", 1.0f);
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if(distance <= lookRadius) {
+        if(distance <= lookRadius && isAlive) {
             agent.isStopped = false;
             agent.SetDestination(target.position);
             animator.SetBool("isAgro", true);
@@ -58,6 +62,16 @@ public class Enemy : MonoBehaviour
 
     private void EnableCollider()
     {
-        collider.enabled = true;
+        GetComponent<Collider>().enabled = true;
+    }
+
+    public void getHit() {
+        life--;
+        Debug.Log("HI");
+        if(life == 0) {
+            agent.isStopped = true;
+            isAlive = false;
+            animator.SetBool("isDead", true);
+        }
     }
 }

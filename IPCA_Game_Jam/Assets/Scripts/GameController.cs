@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class GameController : MonoBehaviour
     private int round;
 
 
+    public GameObject gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +55,27 @@ public class GameController : MonoBehaviour
         {
             Instantiate(enemyPrefab, spawnPoint4, Quaternion.identity);
         }
+    }
+
+    public void GameOver()
+    {
+        GameObject gameObject = GameObject.FindGameObjectWithTag("Player");
+        //Disable Player Script
+        gameObject.GetComponent<Player>().enabled = false;
+
+        //Disable Camera Script
+        Camera.main.GetComponent<CameraMovement>().enabled = false;
+
+        gameOverScreen.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

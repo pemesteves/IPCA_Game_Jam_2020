@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject gameOverScreen;
+
     public Vector3 spawnPoint1, spawnPoint2, spawnPoint3, spawnPoint4;
     public GameObject enemyPrefab;
     private int round;
@@ -24,6 +26,28 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void GameOver()
+    {
+        GameObject gameObject = GameObject.FindGameObjectWithTag("Player");
+        //Disable Player Script
+        gameObject.GetComponent<Player>().enabled = false;
+
+        //Disable Camera Script
+        Camera.main.GetComponent<CameraMovement>().enabled = false;
+
+        gameOverScreen.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     private void Round()

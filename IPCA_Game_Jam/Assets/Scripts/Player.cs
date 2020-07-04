@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
 
+    public GameController gameController;
+
     /* PLAYER ANIMATOR */
     private Animator playerAnimator;
     private bool isWalking;
@@ -73,7 +75,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
-            TakeDamage(1);
+            TakeDamage(10);
 
         bool holdLantern = Input.GetButton("HoldLantern");
         if (holdLantern && !isHoldingLantern)
@@ -142,9 +144,12 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (currentHealth <= 0)
-            playerAnimator.SetTrigger("die");
-
         healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            playerAnimator.SetTrigger("die");
+            gameController.GameOver();
+        }
     }
 }

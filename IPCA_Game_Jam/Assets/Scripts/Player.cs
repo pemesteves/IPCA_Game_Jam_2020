@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private bool isWalking;
     private bool isAiming;
     private float speed;
+    private int aimMask;
 
     private bool canShoot;
 
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
         speed = 0.1f;
 
         canShoot = true;
+
+        aimMask = 1 << 8; //Check collision with layer 8 (Arena)
     }
 
     // Update is called once per frame
@@ -40,8 +43,16 @@ public class Player : MonoBehaviour
             isAiming = false;
         }
 
-        if(aim && canShoot && Input.GetButtonDown("Shoot"))
+        if (isAiming)
         {
+            RaycastHit hit; //TODO Change DrawRay to point
+            if (Physics.Raycast(gunBarrel.transform.position, gunBarrel.transform.TransformDirection(-Vector3.right), out hit, Mathf.Infinity))
+            {
+                Debug.DrawRay(gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, gunBarrel.transform.TransformDirection(-Vector3.right) * hit.distance, Color.cyan, 20);
+            }
+        }
+
+        if (aim && canShoot && Input.GetButtonDown("Shoot")) { 
             Shoot();
         }
 

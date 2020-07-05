@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject gameOverScreen;
 
     public Vector3 spawnPoint1, spawnPoint2, spawnPoint3, spawnPoint4;
-    public GameObject enemyPrefab;
+    public GameObject enemyPrefab, bossPrefab;
     private int round;
 
     public GameObject waveIncomingCanvas;
@@ -102,6 +102,10 @@ public class GameController : MonoBehaviour
         {
             Invoke("SpawnEnemy", 3.0f);
         }
+        if(round % 5 == 0)
+        {
+            Invoke("SpawnBoss", 3.0f);
+        }
     }
 
     private void SpawnEnemy()
@@ -119,6 +123,24 @@ public class GameController : MonoBehaviour
         } else if(rand == 3)
         {
             Instantiate(enemyPrefab, spawnPoint4, Quaternion.identity);
+        }
+    }
+
+    private void SpawnBoss()
+    {
+        int rand = Random.Range(0,4);
+        if(rand == 0)
+        {
+            Instantiate(bossPrefab, spawnPoint1, Quaternion.identity);
+        } else if(rand == 1)
+        {
+            Instantiate(bossPrefab, spawnPoint2, Quaternion.identity);
+        } else if(rand == 2)
+        {
+            Instantiate(bossPrefab, spawnPoint3, Quaternion.identity);
+        } else if(rand == 3)
+        {
+            Instantiate(bossPrefab, spawnPoint4, Quaternion.identity);
         }
     }
 }

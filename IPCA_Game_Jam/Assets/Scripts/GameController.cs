@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         round = 0;
         IncomingRound();
         Invoke("Round", 5.0f);
@@ -27,7 +30,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey ("escape")) {
+            Application.Quit();
+        }
     }
 
     public void GameOver()
@@ -50,7 +55,7 @@ public class GameController : MonoBehaviour
             Enemy e = enemy.GetComponent<Enemy>();
             e.SetPlayerDead();
         }
-        
+
     }
 
     public void PlayAgain()
@@ -104,7 +109,10 @@ public class GameController : MonoBehaviour
         }
         if(round % 5 == 0)
         {
-            Invoke("SpawnBoss", 3.0f);
+            for(int i = 0; i < round/5; i++)
+            {
+                Invoke("SpawnBoss", 3.0f);
+            }
         }
     }
 

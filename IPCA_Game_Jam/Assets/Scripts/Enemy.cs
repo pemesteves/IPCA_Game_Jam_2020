@@ -46,14 +46,15 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if(distance <= lookRadius && isAlive && !attacking) {
+        if (distance <= minimapMaxDistance)
+            minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
+        else
+            minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
+
+        if (distance <= lookRadius && isAlive && !attacking) {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
             animator.SetBool("isAgro", true);
-            if(distance <= minimapMaxDistance)
-                minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
-            else
-                minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
 
             if (distance <= agent.stoppingDistance) {
                 Vector3 direction = (player.transform.position - transform.position).normalized;
@@ -64,7 +65,6 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("isAttacking", false);
             }
         } else {
-            minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
             animator.SetBool("isAgro", false);
             agent.isStopped = true;
         }

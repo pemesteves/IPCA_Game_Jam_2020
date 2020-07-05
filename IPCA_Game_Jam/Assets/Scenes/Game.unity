@@ -3072,6 +3072,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LanternPointLight
       objectReference: {fileID: 0}
+    - target: {fileID: 7436586567527155422, guid: 1b9b66b3ae42898499d1e455f343c573,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b9b66b3ae42898499d1e455f343c573, type: 3}
 --- !u!1001 &7938486066860656415

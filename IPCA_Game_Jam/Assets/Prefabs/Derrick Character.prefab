@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 100
+  attackRadius: 1
   player: {fileID: 0}
   minimapIcon: {fileID: 1267884744078290289}
   zombieSounds:

@@ -76,9 +76,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            TakeDamage(10);
-
         bool holdLantern = Input.GetButton("HoldLantern");
         if (holdLantern && !isHoldingLantern)
         {

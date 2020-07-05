@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         isAiming = false;
         isHoldingLantern = false;
         playerAnimator = gameObject.GetComponent<Animator>();
-        speed = 4f;
+        speed = 1.3f;
 
         canShoot = true;
 

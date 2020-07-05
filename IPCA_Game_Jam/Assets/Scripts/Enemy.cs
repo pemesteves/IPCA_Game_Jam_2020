@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     private bool attacking;
 
     private bool deadPlayer;
+    private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
         Invoke("PlayRandomSound", 0f);
         deadPlayer = false;
         agent.updateRotation = true;
+        velocity = agent.velocity;
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class Enemy : MonoBehaviour
             else if (distance <= 5f)
             {
                 animator.SetTrigger("crawl");
+                agent.velocity = velocity / 3.0f;
             }
             else
             {
@@ -131,9 +134,7 @@ public class Enemy : MonoBehaviour
 
     private void Hit() {
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        Debug.Log(distance);
-        Debug.Log(attackRadius);
-        Debug.Log(distance < attackRadius);
+
         if(distance < attackRadius) {
             player.GetComponent<Player>().TakeDamage(10);
         }

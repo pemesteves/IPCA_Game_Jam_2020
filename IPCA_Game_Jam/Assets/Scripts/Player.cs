@@ -154,12 +154,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other){
+    private void OnCollisionEnter(Collision other){
         if (other.gameObject.CompareTag("LightOrb"))
         {
             Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
             lanternLight.intensity = 2.8f;
-        }
-        Destroy(other.gameObject);
+            Destroy(other.gameObject);
+            
+        }   
     }
 }

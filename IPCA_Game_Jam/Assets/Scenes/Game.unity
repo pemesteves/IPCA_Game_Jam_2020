@@ -4023,6 +4023,86 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1925444932776879716, guid: bf2fccb5eecf7be42aae0699d8f17777,
         type: 3}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint1.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint1.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint1.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint2.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint2.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint3.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint3.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint3.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint4.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint4.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint4.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint5.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint5.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint6.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint6.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightSpawnPoint6.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2780705364287714294, guid: 27aeb63a7a0d9674997d6779a9de024f,
         type: 3}
       propertyPath: m_Name

@@ -1650,6 +1650,8 @@ MonoBehaviour:
   spawnPoint4: {x: -9.1, y: 0, z: 0}
   enemyPrefab: {fileID: 1825069541516095468, guid: 1183f84401fc18f4e8d8a4598d998a1c,
     type: 3}
+  bossPrefab: {fileID: 3666338401479339967, guid: ede5503997385a1468e4506bbd36750f,
+    type: 3}
   waveIncomingCanvas: {fileID: 125249555}
   waveIncomingText: {fileID: 913251693}
   waveIncomingPanels:
@@ -3009,7 +3011,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 3.37
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

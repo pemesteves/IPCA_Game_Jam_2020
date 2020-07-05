@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     private bool isAlive = true;
 
+    public int minimapMaxDistance;
+
     /* SOUNDS */
     public AudioClip[] zombieSounds;
     public AudioClip[] attackSounds;
@@ -48,7 +50,10 @@ public class Enemy : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
             animator.SetBool("isAgro", true);
-            minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
+            if(distance <= minimapMaxDistance)
+                minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
+            else
+                minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
 
             if (distance <= agent.stoppingDistance) {
                 Vector3 direction = (player.transform.position - transform.position).normalized;

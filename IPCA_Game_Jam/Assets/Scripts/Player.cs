@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
 
     public GameController gameController;
 
+    /* LANTERN */
+    public LanternScript lanternScript;
+
     /* PLAYER ANIMATOR */
     private Animator playerAnimator;
     private bool isWalking;
@@ -163,6 +166,7 @@ public class Player : MonoBehaviour
         {
             Light lanternLight = GameObject.Find("Point Light").GetComponent<Light>();
             lanternLight.intensity = 5.0f;
+            lanternScript.ResetCounter();
             Destroy(other.gameObject);
         }   
     }

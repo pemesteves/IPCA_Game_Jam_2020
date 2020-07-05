@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
 
     private float speed;
 
+    /* SOUNDS */
+    public AudioSource walkingSound;
+
     /* SHOOTING */
     private bool canShoot;
     private GameObject gun;
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         {
             if (!isWalking)
             {
+                walkingSound.Play();
                 isWalking = true;
                 playerAnimator.SetBool("isWalking", isWalking);
             }
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
         {
             if (isWalking)
             {
+                walkingSound.Stop();
                 isWalking = false;
                 playerAnimator.SetBool("isWalking", isWalking);
             }

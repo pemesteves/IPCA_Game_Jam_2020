@@ -42,7 +42,15 @@ public class GameController : MonoBehaviour
         gameOverScreen.SetActive(true);
 
         CancelInvoke("IncomingRound");
+        CancelInvoke("Round");
         CancelInvoke("SpawnEnemy");
+
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Enemy e = enemy.GetComponent<Enemy>();
+            e.SetPlayerDead();
+        }
+        
     }
 
     public void PlayAgain()

@@ -165,9 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5f44ea575ec3344ba78238b3786d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 0}
   lookRadius: 100
   attackRadius: 1
   player: {fileID: 0}
+  value: 1
   minimapIcon: {fileID: 1267884744078290289}
   life: 2
   damage: 10

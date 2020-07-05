@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject lightOrbPrefab;
     public GameObject enemyPrefab, bossPrefab;
     private int round;
+    private int points;
 
     public GameObject waveIncomingCanvas;
     public Text waveIncomingText;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         round = 0;
+        points = 0;
         IncomingRound();
         InvokeRepeating("SpawnLightOrb", 10.0f, 15.0f);
         Invoke("Round", 5.0f);
@@ -105,6 +107,7 @@ public class GameController : MonoBehaviour
         Invoke("IncomingRound", 0.5f * round * round + 5.0f);
         Invoke("Round", 0.5f * round * round + 10.0f);
         round++;
+        points += 100;
 
         for(int i = 0; i < round; i++)
         {
@@ -122,19 +125,22 @@ public class GameController : MonoBehaviour
     private void SpawnEnemy()
     {
         int rand = Random.Range(0,4);
+        Vector3 spawn = new Vector3(0,0,0);
         if(rand == 0)
         {
-            Instantiate(enemyPrefab, spawnPoint1, Quaternion.identity);
+            spawn = spawnPoint1;
         } else if(rand == 1)
         {
-            Instantiate(enemyPrefab, spawnPoint2, Quaternion.identity);
+            spawn = spawnPoint2;
         } else if(rand == 2)
         {
-            Instantiate(enemyPrefab, spawnPoint3, Quaternion.identity);
+            spawn = spawnPoint3;
         } else if(rand == 3)
         {
-            Instantiate(enemyPrefab, spawnPoint4, Quaternion.identity);
+            spawn = spawnPoint4;
         }
+        GameObject e = Instantiate(enemyPrefab, spawn, Quaternion.identity) as GameObject;
+        e.GetComponent<Enemy>().gc = this;
     }
 
     private void SpawnLightOrb()
@@ -166,18 +172,27 @@ public class GameController : MonoBehaviour
     private void SpawnBoss()
     {
         int rand = Random.Range(0,4);
+        Vector3 spawn = new Vector3(0,0,0);
         if(rand == 0)
         {
-            Instantiate(bossPrefab, spawnPoint1, Quaternion.identity);
+            spawn = spawnPoint1;
         } else if(rand == 1)
         {
-            Instantiate(bossPrefab, spawnPoint2, Quaternion.identity);
+            spawn = spawnPoint2;
         } else if(rand == 2)
         {
-            Instantiate(bossPrefab, spawnPoint3, Quaternion.identity);
+            spawn = spawnPoint3;
         } else if(rand == 3)
         {
-            Instantiate(bossPrefab, spawnPoint4, Quaternion.identity);
+            spawn = spawnPoint4;
         }
+        GameObject e = Instantiate(bossPrefab, spawn, Quaternion.identity) as GameObject;
+        e.GetComponent<Enemy>().gc = this;
+    }
+
+    public void KillEnemy(int value)
+    {
+        points += value;
+        Debug.Log("Kill " + points);
     }
 }

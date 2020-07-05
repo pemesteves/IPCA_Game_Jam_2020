@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     private bool attacking;
 
     private bool deadPlayer;
-    private Vector3 velocity;
+    private float velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         Invoke("PlayRandomSound", 0f);
         deadPlayer = false;
         agent.updateRotation = true;
-        velocity = agent.velocity;
+        velocity = 0.03f;
     }
 
     // Update is called once per frame
@@ -60,22 +60,21 @@ public class Enemy : MonoBehaviour
         else
             minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
 
-        if (deadPlayer)
+        if (deadPlayer && isAlive)
         {
+            agent.isStopped = false;
             if (distance <= 0.5f)
             {
                 animator.SetTrigger("bite");
             }
-            else if (distance <= 5f)
+            else if (distance <= 2.5f)
             {
-                agent.isStopped = false;
                 agent.SetDestination(player.transform.position);
-                agent.velocity = velocity / 3.0f;
+                agent.speed = velocity;
                 animator.SetTrigger("crawl");
             }
             else
             {
-                agent.isStopped = false;
                 agent.SetDestination(player.transform.position);
                 animator.SetBool("isAgro", true);
             }

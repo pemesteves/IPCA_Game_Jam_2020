@@ -66,8 +66,10 @@ public class Enemy : MonoBehaviour
             }
             else if (distance <= 5f)
             {
-                animator.SetTrigger("crawl");
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
                 agent.velocity = velocity / 3.0f;
+                animator.SetTrigger("crawl");
             }
             else
             {

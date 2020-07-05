@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public GameController gc;
     public float lookRadius = 10f;
     public float attackRadius;
     public GameObject player;
+    public int value;
     NavMeshAgent agent;
     private Animator animator;
 
@@ -114,6 +116,7 @@ public class Enemy : MonoBehaviour
             agent.isStopped = true;
             isAlive = false;
             animator.SetBool("isDead", true);
+            gc.KillEnemy(value);
         }
     }
 

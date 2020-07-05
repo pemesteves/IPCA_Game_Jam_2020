@@ -1546,7 +1546,15 @@ MonoBehaviour:
   spawnPoint2: {x: 9.1, y: 0, z: 0}
   spawnPoint3: {x: 0, y: 0, z: -9.1}
   spawnPoint4: {x: -9.1, y: 0, z: 0}
+  lightSpawnPoint1: {x: 3, y: 0.2, z: 3}
+  lightSpawnPoint2: {x: -5, y: 0.2, z: 0}
+  lightSpawnPoint3: {x: -3, y: 0.2, z: 3}
+  lightSpawnPoint4: {x: 2, y: 0.2, z: 1}
+  lightSpawnPoint5: {x: 0, y: 0.2, z: 1}
+  lightSpawnPoint6: {x: 1, y: 0.2, z: 0}
   enemyPrefab: {fileID: 1825069541516095468, guid: 1183f84401fc18f4e8d8a4598d998a1c,
+    type: 3}
+  lightOrbPrefab: {fileID: 1925444932776879716, guid: bf2fccb5eecf7be42aae0699d8f17777,
     type: 3}
   waveIncomingCanvas: {fileID: 125249555}
   waveIncomingText: {fileID: 913251693}

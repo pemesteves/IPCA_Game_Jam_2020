@@ -157,7 +157,6 @@ public class Player : MonoBehaviour
             Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
             lanternLight.intensity = 2.8f;
             Destroy(other.gameObject);
-            
         }   
     }
 }

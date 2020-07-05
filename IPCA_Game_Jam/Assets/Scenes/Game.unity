@@ -1036,6 +1036,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &379379478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 626969685320169098, guid: 1b9b66b3ae42898499d1e455f343c573,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190244079819078889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61145c15d8d85345a0327c788238cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &434032615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3185,11 @@ PrefabInstance:
       propertyPath: walkingSound
       value: 
       objectReference: {fileID: 1847535139}
+    - target: {fileID: 1190244079665397464, guid: 1b9b66b3ae42898499d1e455f343c573,
+        type: 3}
+      propertyPath: lanternScript
+      value: 
+      objectReference: {fileID: 379379478}
     - target: {fileID: 1190244079665397469, guid: 1b9b66b3ae42898499d1e455f343c573,
         type: 3}
       propertyPath: m_Constraints

@@ -7,27 +7,18 @@ public class LanternScript : MonoBehaviour
 
     public Light lightToFade;
     public float fadeTime = 15f;
+    private float counter = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(fadeOut(lightToFade, fadeTime));   
+        StartCoroutine(FadeOut(lightToFade, fadeTime));   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    IEnumerator fadeOut(Light lightToFade, float duration)
+    IEnumerator FadeOut(Light lightToFade, float duration)
     {
         float minLuminosity = 0;
         float maxLuminosity = 5.0f; 
-
-        float counter = 0f;
-
-        float currentIntensity = lightToFade.intensity;
 
         while (counter < duration)
         {
@@ -39,5 +30,10 @@ public class LanternScript : MonoBehaviour
         }
     }
 
+    public void ResetCounter(){
+        counter = 0f;
+        StopCoroutine("FadeOut");
+        StartCoroutine(FadeOut(lightToFade, fadeTime));
+    }
 
 }

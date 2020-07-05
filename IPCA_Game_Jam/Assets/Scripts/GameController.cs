@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject gameOverScreen;
 
     public Vector3 spawnPoint1, spawnPoint2, spawnPoint3, spawnPoint4;
-    public Vector3 lightSpawnPoint1, lightSpawnPoint2, lightSpawnPoint3, lightSpawnPoint4, lightSpawnPoint5, lightSpawnPoint6; 
+    public Vector3 lightSpawnPoint1, lightSpawnPoint2, lightSpawnPoint3, lightSpawnPoint4, lightSpawnPoint5, lightSpawnPoint6;
     public GameObject lightOrbPrefab;
     public GameObject enemyPrefab, bossPrefab;
     private int round;
@@ -19,10 +19,11 @@ public class GameController : MonoBehaviour
     public Text waveIncomingText;
     public GameObject[] waveIncomingPanels;
 
+    public Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         round = 0;
@@ -35,9 +36,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey ("escape")) {
+        if (Input.GetKey (KeyCode.Escape)) {
             Application.Quit();
         }
+        scoreText.text = "SCORE: " + points;
     }
 
     public void GameOver()
@@ -48,6 +50,9 @@ public class GameController : MonoBehaviour
 
         //Disable Camera Script
         Camera.main.GetComponent<CameraMovement>().enabled = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         gameOverScreen.SetActive(true);
 
@@ -107,7 +112,7 @@ public class GameController : MonoBehaviour
         Invoke("IncomingRound", 0.5f * round * round + 5.0f);
         Invoke("Round", 0.5f * round * round + 10.0f);
         round++;
-        points += 100;
+        points += 10;
 
         for(int i = 0; i < round; i++)
         {
@@ -193,6 +198,5 @@ public class GameController : MonoBehaviour
     public void KillEnemy(int value)
     {
         points += value;
-        Debug.Log("Kill " + points);
     }
 }

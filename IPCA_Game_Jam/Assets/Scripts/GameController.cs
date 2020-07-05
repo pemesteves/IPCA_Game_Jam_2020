@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public GameObject gameOverScreen;
 
     public Vector3 spawnPoint1, spawnPoint2, spawnPoint3, spawnPoint4;
+    public Vector3 lightSpawnPoint1, lightSpawnPoint2, lightSpawnPoint3, lightSpawnPoint4, lightSpawnPoint5, lightSpawnPoint6; 
+    public GameObject lightOrbPrefab;
     public GameObject enemyPrefab, bossPrefab;
     private int round;
     private int points;
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
         round = 0;
         points = 0;
         IncomingRound();
+        InvokeRepeating("SpawnLightOrb", 10.0f, 15.0f);
         Invoke("Round", 5.0f);
     }
 
@@ -138,6 +141,32 @@ public class GameController : MonoBehaviour
         }
         GameObject e = Instantiate(enemyPrefab, spawn, Quaternion.identity) as GameObject;
         e.GetComponent<Enemy>().gc = this;
+    }
+
+    private void SpawnLightOrb()
+    {
+        int rand = Random.Range(0,6);
+        Vector3 spawnPoint = new Vector3 (0,0,0);
+        if(rand == 0)
+        {
+            spawnPoint = lightSpawnPoint1;
+        } else if(rand == 1)
+        {
+            spawnPoint = lightSpawnPoint2;
+        } else if(rand == 2)
+        {
+            spawnPoint = lightSpawnPoint3;
+        } else if(rand == 3)
+        {
+            spawnPoint = lightSpawnPoint4;
+        } else if(rand == 4)
+        {
+            spawnPoint = lightSpawnPoint5;
+        } else if(rand == 5)
+        {
+            spawnPoint = lightSpawnPoint6;
+        }
+        Instantiate(lightOrbPrefab, spawnPoint, Quaternion.identity);
     }
 
     private void SpawnBoss()

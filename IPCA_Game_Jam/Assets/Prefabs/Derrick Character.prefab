@@ -127,7 +127,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
@@ -171,6 +171,8 @@ MonoBehaviour:
   player: {fileID: 0}
   value: 1
   minimapIcon: {fileID: 1267884744078290289}
+  life: 2
+  damage: 10
   minimapMaxDistance: 3
   zombieSounds:
   - {fileID: 8300000, guid: e24cd0770329f374cafc621201e74969, type: 3}

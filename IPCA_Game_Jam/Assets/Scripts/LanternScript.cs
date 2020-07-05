@@ -23,7 +23,7 @@ public class LanternScript : MonoBehaviour
     IEnumerator fadeOut(Light lightToFade, float duration)
     {
         float minLuminosity = 0;
-        float maxLuminosity = 2.8f; 
+        float maxLuminosity = 5.0f; 
 
         float counter = 0f;
 

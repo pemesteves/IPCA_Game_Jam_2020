@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("LightOrb"))
         {
             Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
-            lanternLight.intensity = 2.8f;
+            lanternLight.intensity = 4.0f;
             Destroy(other.gameObject);
         }   
     }

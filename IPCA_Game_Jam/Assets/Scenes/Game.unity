@@ -1648,12 +1648,12 @@ MonoBehaviour:
   spawnPoint2: {x: 9.1, y: 0, z: 0}
   spawnPoint3: {x: 0, y: 0, z: -9.1}
   spawnPoint4: {x: -9.1, y: 0, z: 0}
-  lightSpawnPoint1: {x: 0, y: 0, z: 0}
-  lightSpawnPoint2: {x: 0, y: 0, z: 0}
-  lightSpawnPoint3: {x: 0, y: 0, z: 0}
-  lightSpawnPoint4: {x: 0, y: 0, z: 0}
-  lightSpawnPoint5: {x: 0, y: 0, z: 0}
-  lightSpawnPoint6: {x: 0, y: 0, z: 0}
+  lightSpawnPoint1: {x: 3, y: 0.8, z: 3}
+  lightSpawnPoint2: {x: -5, y: 0.8, z: 0}
+  lightSpawnPoint3: {x: -3, y: 0.8, z: 3}
+  lightSpawnPoint4: {x: 2, y: 0.8, z: 1}
+  lightSpawnPoint5: {x: 0, y: 0.8, z: 1}
+  lightSpawnPoint6: {x: 1, y: 0.8, z: 0}
   lightOrbPrefab: {fileID: 1925444932776879716, guid: bf2fccb5eecf7be42aae0699d8f17777,
     type: 3}
   enemyPrefab: {fileID: 1825069541516095468, guid: 1183f84401fc18f4e8d8a4598d998a1c,
@@ -3884,7 +3884,7 @@ PrefabInstance:
     - target: {fileID: 7436586567527155422, guid: 1b9b66b3ae42898499d1e455f343c573,
         type: 3}
       propertyPath: m_Intensity
-      value: 2.8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7779257817600201994, guid: 1b9b66b3ae42898499d1e455f343c573,
         type: 3}
@@ -3980,11 +3980,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 8.239874
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436586567527155422, guid: 1b9b66b3ae42898499d1e455f343c573,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b9b66b3ae42898499d1e455f343c573, type: 3}

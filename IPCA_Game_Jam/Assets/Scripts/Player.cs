@@ -161,8 +161,8 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision other){
         if (other.gameObject.CompareTag("LightOrb"))
         {
-            Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
-            lanternLight.intensity = 4.0f;
+            Light lanternLight = GameObject.Find("Point Light").GetComponent<Light>();
+            lanternLight.intensity = 5.0f;
             Destroy(other.gameObject);
         }   
     }

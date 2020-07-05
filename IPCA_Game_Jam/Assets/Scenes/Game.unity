@@ -4017,6 +4017,12 @@ PrefabInstance:
       propertyPath: waveIncomingPanels.Array.data[1]
       value: 
       objectReference: {fileID: 1551745530}
+    - target: {fileID: 2780705364287714289, guid: 27aeb63a7a0d9674997d6779a9de024f,
+        type: 3}
+      propertyPath: lightOrbPrefab
+      value: 
+      objectReference: {fileID: 1925444932776879716, guid: bf2fccb5eecf7be42aae0699d8f17777,
+        type: 3}
     - target: {fileID: 2780705364287714294, guid: 27aeb63a7a0d9674997d6779a9de024f,
         type: 3}
       propertyPath: m_Name

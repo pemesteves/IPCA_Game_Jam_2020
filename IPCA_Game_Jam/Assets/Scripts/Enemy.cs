@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour
 
     //private CapsuleCollider collider;
 
-    private int life = 2;
+    public int life;
+    public int damage;
 
     private bool isAlive = true;
 
@@ -52,7 +53,7 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distance <= minimapMaxDistance)
+        if (distance <= minimapMaxDistance && isAlive)
             minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
         else
             minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
@@ -107,6 +108,7 @@ public class Enemy : MonoBehaviour
     public void getHit() {
         life--;
         if(life == 0) {
+            GetComponent<Collider>().enabled = false;
             agent.isStopped = true;
             isAlive = false;
             animator.SetBool("isDead", true);
@@ -115,9 +117,11 @@ public class Enemy : MonoBehaviour
 
     private void PlayRandomSound()
     {
-        audioSource.clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
-        audioSource.Play();
-        Invoke("PlayRandomSound", audioSource.clip.length * 1.5f);
+        if(isAlive) {
+            audioSource.clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
+            audioSource.Play();
+            Invoke("PlayRandomSound", audioSource.clip.length * 1.5f);
+        }
     }
 
     private void Attack()
@@ -136,7 +140,7 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if(distance < attackRadius) {
-            player.GetComponent<Player>().TakeDamage(10);
+            player.GetComponent<Player>().TakeDamage(damage);
         }
     }
 

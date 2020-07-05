@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 34929299132323122}
   - component: {fileID: 6922501263203874954}
   m_Layer: 0
-  m_Name: Pickle Rick Character 1
+  m_Name: Pickle Rick Character
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3666338401479339967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.413, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3849392565420703278}
@@ -48,7 +48,7 @@ CapsuleCollider:
   m_Radius: 0.3
   m_Height: 1.29
   m_Direction: 1
-  m_Center: {x: -0.13, y: 0.64, z: 0}
+  m_Center: {x: -0.13, y: 0.63, z: 0}
 --- !u!195 &6674748133170106164
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -88,6 +88,8 @@ MonoBehaviour:
   player: {fileID: 0}
   minimapIcon: {fileID: 1267884744078290289, guid: 1183f84401fc18f4e8d8a4598d998a1c,
     type: 3}
+  life: 7
+  damage: 40
   minimapMaxDistance: 3
   zombieSounds:
   - {fileID: 8300000, guid: e24cd0770329f374cafc621201e74969, type: 3}
@@ -218,7 +220,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bdb88e97b74df684a973643d9159b43e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb88e97b74df684a973643d9159b43e,
         type: 3}

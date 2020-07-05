@@ -82,9 +82,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5f44ea575ec3344ba78238b3786d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 5
+  lookRadius: 100
   target: {fileID: 0}
   minimapIcon: {fileID: 0}
+  zombieSounds: []
+  attackSounds: []
+  bitingSounds: []
 --- !u!1001 &633773212790787721
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ TagManager:
   - Gun
   - Bullet
   - Enemy
+  - LightOrb
+  - LanternPointLight
   layers:
   - Default
   - TransparentFX

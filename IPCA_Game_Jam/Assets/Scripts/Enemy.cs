@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public float lookRadius = 10f;
-    public Transform target;
+    public float attackRadius;
+    public GameObject player;
     NavMeshAgent agent;
     private Animator animator;
 
@@ -23,12 +24,13 @@ public class Enemy : MonoBehaviour
     public AudioClip[] attackSounds;
     public AudioClip[] bitingSounds;
     private AudioSource audioSource;
-    private bool playingAttackSound;
+    private bool attacking;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("Player");
         animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
         //collider = GetComponent<CapsuleCollider>();
         //collider.enabled = false;
@@ -40,25 +42,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if(distance <= lookRadius && isAlive) {
+        if(distance <= lookRadius && isAlive && !attacking) {
             agent.isStopped = false;
-            agent.SetDestination(target.position);
+            agent.SetDestination(player.transform.position);
             animator.SetBool("isAgro", true);
             minimapIcon.layer = LayerMask.NameToLayer("DisplayMinimapEnemy");
 
             if (distance <= agent.stoppingDistance) {
-                animator.SetBool("isAttacking", true);
-                Vector3 direction = (target.position - transform.position).normalized;
+                Vector3 direction = (player.transform.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 5);
-                PlayAttackSound();
+                Attack();
             } else {
                 animator.SetBool("isAttacking", false);
             }
-        } else
-        {
+        } else {
             minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
             animator.SetBool("isAgro", false);
             agent.isStopped = true;
@@ -77,7 +77,6 @@ public class Enemy : MonoBehaviour
 
     public void getHit() {
         life--;
-        Debug.Log("HI");
         if(life == 0) {
             agent.isStopped = true;
             isAlive = false;
@@ -92,19 +91,31 @@ public class Enemy : MonoBehaviour
         Invoke("PlayRandomSound", audioSource.clip.length * 1.5f);
     }
 
-    private void PlayAttackSound()
+    private void Attack()
     {
-        if (playingAttackSound) return;
+        if (attacking) return;
+        animator.SetBool("isAttacking", true);
         CancelInvoke("PlayRandomSound");
         audioSource.clip = attackSounds[Random.Range(0, attackSounds.Length)];
         audioSource.Play();
-        Invoke("FinishAttackSound", audioSource.clip.length);
-        playingAttackSound = true;
+        Invoke("Hit", 1.6f);
+        Invoke("FinishAttack", 2.633f);
+        attacking = true;
     }
 
-    private void FinishAttackSound()
+    private void Hit() {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        Debug.Log(distance);
+        Debug.Log(attackRadius);
+        Debug.Log(distance < attackRadius);
+        if(distance < attackRadius) {
+            player.GetComponent<Player>().TakeDamage(10);
+        }
+    }
+
+    private void FinishAttack()
     {
-        playingAttackSound = false;
+        attacking = false;
         PlayRandomSound();
     }
 }

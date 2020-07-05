@@ -235,7 +235,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.754717, g: 0.5405575, b: 0, a: 1}
-  m_Intensity: 2.3
+  m_Intensity: 2.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightToFade: {fileID: 8036499323468058972}
-  fadeTime: 15
+  fadeTime: 30
 --- !u!1 &8036499323934946940
 GameObject:
   m_ObjectHideFlags: 0

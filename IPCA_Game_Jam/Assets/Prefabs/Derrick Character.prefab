@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1703080133020652212}
   m_Layer: 0
   m_Name: Derrick Character
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5f44ea575ec3344ba78238b3786d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 2.5
-  target: {fileID: 1661302499246164796, guid: 1b9b66b3ae42898499d1e455f343c573, type: 3}
+  lookRadius: 100
+  attackRadius: 1
+  player: {fileID: 0}
   minimapIcon: {fileID: 1267884744078290289}
   zombieSounds:
   - {fileID: 8300000, guid: e24cd0770329f374cafc621201e74969, type: 3}

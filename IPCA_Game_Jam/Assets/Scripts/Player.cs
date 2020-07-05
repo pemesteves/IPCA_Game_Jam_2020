@@ -76,9 +76,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            TakeDamage(10);
-
         bool holdLantern = Input.GetButton("HoldLantern");
         if (holdLantern && !isHoldingLantern)
         {
@@ -152,5 +149,15 @@ public class Player : MonoBehaviour
             playerAnimator.SetTrigger("die");
             gameController.GameOver();
         }
+    }
+
+    private void OnCollisionEnter(Collision other){
+        if (other.gameObject.CompareTag("LightOrb"))
+        {
+            Light lanternLight = GameObject.FindWithTag("LanternPointLight").GetComponent<Light>();
+            lanternLight.intensity = 2.8f;
+            Destroy(other.gameObject);
+            
+        }   
     }
 }

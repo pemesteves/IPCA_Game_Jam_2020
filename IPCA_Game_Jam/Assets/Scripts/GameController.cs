@@ -40,6 +40,9 @@ public class GameController : MonoBehaviour
         Camera.main.GetComponent<CameraMovement>().enabled = false;
 
         gameOverScreen.SetActive(true);
+
+        CancelInvoke("IncomingRound");
+        CancelInvoke("SpawnEnemy");
     }
 
     public void PlayAgain()

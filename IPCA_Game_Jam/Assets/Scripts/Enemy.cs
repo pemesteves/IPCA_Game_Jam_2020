@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     private AudioSource audioSource;
     private bool attacking;
 
+    private bool deadPlayer;
+    private Vector3 velocity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,9 @@ public class Enemy : MonoBehaviour
         //Invoke("EnableCollider", 1.0f);
         audioSource = GetComponent<AudioSource>();
         Invoke("PlayRandomSound", 0f);
+        deadPlayer = false;
+        agent.updateRotation = true;
+        velocity = agent.velocity;
     }
 
     // Update is called once per frame
@@ -51,7 +57,25 @@ public class Enemy : MonoBehaviour
         else
             minimapIcon.layer = LayerMask.NameToLayer("MinimapEnemy");
 
-        if (distance <= lookRadius && isAlive && !attacking) {
+        if (deadPlayer)
+        {
+            if (distance <= 0.5f)
+            {
+                animator.SetTrigger("bite");
+            }
+            else if (distance <= 5f)
+            {
+                animator.SetTrigger("crawl");
+                agent.velocity = velocity / 3.0f;
+            }
+            else
+            {
+                agent.isStopped = false;
+                agent.SetDestination(player.transform.position);
+                animator.SetBool("isAgro", true);
+            }
+        }
+        else if (distance <= lookRadius && isAlive && !attacking) {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
             animator.SetBool("isAgro", true);
@@ -110,9 +134,7 @@ public class Enemy : MonoBehaviour
 
     private void Hit() {
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        Debug.Log(distance);
-        Debug.Log(attackRadius);
-        Debug.Log(distance < attackRadius);
+
         if(distance < attackRadius) {
             player.GetComponent<Player>().TakeDamage(10);
         }
@@ -122,5 +144,10 @@ public class Enemy : MonoBehaviour
     {
         attacking = false;
         PlayRandomSound();
+    }
+
+    public void SetPlayerDead()
+    {
+        deadPlayer = true;
     }
 }

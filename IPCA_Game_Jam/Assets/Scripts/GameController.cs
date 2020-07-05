@@ -10,8 +10,8 @@ public class GameController : MonoBehaviour
 
     public Vector3 spawnPoint1, spawnPoint2, spawnPoint3, spawnPoint4;
     public Vector3 lightSpawnPoint1, lightSpawnPoint2, lightSpawnPoint3, lightSpawnPoint4, lightSpawnPoint5, lightSpawnPoint6; 
-    public GameObject enemyPrefab;
     public GameObject lightOrbPrefab;
+    public GameObject enemyPrefab, bossPrefab;
     private int round;
 
     public GameObject waveIncomingCanvas;
@@ -21,6 +21,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         round = 0;
         IncomingRound();
         InvokeRepeating("SpawnLightOrb", 10.0f, 15.0f);
@@ -30,7 +33,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey ("escape")) {
+            Application.Quit();
+        }
     }
 
     public void GameOver()
@@ -43,6 +48,17 @@ public class GameController : MonoBehaviour
         Camera.main.GetComponent<CameraMovement>().enabled = false;
 
         gameOverScreen.SetActive(true);
+
+        CancelInvoke("IncomingRound");
+        CancelInvoke("Round");
+        CancelInvoke("SpawnEnemy");
+
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Enemy e = enemy.GetComponent<Enemy>();
+            e.SetPlayerDead();
+        }
+
     }
 
     public void PlayAgain()
@@ -94,6 +110,13 @@ public class GameController : MonoBehaviour
         {
             Invoke("SpawnEnemy", 3.0f);
         }
+        if(round % 5 == 0)
+        {
+            for(int i = 0; i < round/5; i++)
+            {
+                Invoke("SpawnBoss", 3.0f);
+            }
+        }
     }
 
     private void SpawnEnemy()
@@ -138,5 +161,23 @@ public class GameController : MonoBehaviour
             spawnPoint = lightSpawnPoint6;
         }
         Instantiate(lightOrbPrefab, spawnPoint, Quaternion.identity);
+    }
+
+    private void SpawnBoss()
+    {
+        int rand = Random.Range(0,4);
+        if(rand == 0)
+        {
+            Instantiate(bossPrefab, spawnPoint1, Quaternion.identity);
+        } else if(rand == 1)
+        {
+            Instantiate(bossPrefab, spawnPoint2, Quaternion.identity);
+        } else if(rand == 2)
+        {
+            Instantiate(bossPrefab, spawnPoint3, Quaternion.identity);
+        } else if(rand == 3)
+        {
+            Instantiate(bossPrefab, spawnPoint4, Quaternion.identity);
+        }
     }
 }

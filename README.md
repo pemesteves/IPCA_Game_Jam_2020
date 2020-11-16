@@ -15,7 +15,7 @@ Game developed during the IPCA Game Jam 2020.
 ![Zombies Horde](https://i.imgur.com/BvHfF0f.png "Zombies Horde")
 **Fig. 3: Zombies Horde** <br><br>
 
-![Game Over Screen](https://i.imgur.com/BvHfF0f.png "Game Over Screen")
+![Game Over Screen](https://i.imgur.com/zUqXf37.png "Game Over Screen")
 **Fig. 4: Game Over Screen** <br><br>
 
 ### Team

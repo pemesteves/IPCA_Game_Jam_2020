@@ -25,7 +25,7 @@ Game developed during the IPCA Game Jam 2020.
 * [Pedro Esteves](https://github.com/pemesteves "pemesteves")
 
 
-**Link:** [https://ipcagamejam.itch.io/goodcopdeadcop]https://ipcagamejam.itch.io/goodcopdeadcop "IPCA Game Jam")
+**Link:** [https://ipcagamejam.itch.io/goodcopdeadcop](https://ipcagamejam.itch.io/goodcopdeadcop "IPCA Game Jam")
 
 ### Technologies
 * C#
